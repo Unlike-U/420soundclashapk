@@ -13,7 +13,6 @@ export class DonationModal {
           <h2>Glad you are enjoying the 420% Sounbender</h2>
           <p>In order to download your artwork you must support its development and my cannabis & green tea addiction . Always keep it 420% !</p>
           <div class="donation-options">
-            <a href="https://paypal.me/stereoiii6" target="_blank" class="donation-btn paypal">PayPal</a>
             <div class="crypto-donations">
               <p><strong>Crypto:</strong></p>
               <p>BTC<br/> <code>1JqQeeUP6mkGfcBhzu9BdoiF467fqPP94Y</code></p>
