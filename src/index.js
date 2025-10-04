@@ -8,7 +8,7 @@ import { Recorder } from './components/Recorder.js';
 import { SkinLoader } from './utils/skinLoader.js';
 import { RotaryKnob } from './utils/rotaryKnob.js';
 import { Sampler } from './components/Sampler.js';
-import { hasHeadphones, isMobile } from './utils/deviceUtils.js';
+import { hasHeadphones } from './utils/deviceUtils.js';
 import { getRandomArt } from './utils/asciiArt.js';
 import { AsciiAnimator } from './utils/asciiAnimator.js';
 import { DonationModal } from './components/DonationModal.js';
@@ -19,9 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const recorder = new Recorder(audioEngine.audioContext, audioEngine.getRecordingDestination());
   const donationModal = new DonationModal();
 
-  if (isMobile()) {
-    document.querySelector('.mixer-container').classList.add('mobile-layout');
-  }
+
 
 
   const state = {
