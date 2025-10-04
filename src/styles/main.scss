@@ -46,20 +46,28 @@ h1, h2 {
 }
 
 #interface-wrapper {
-  display: inline-block; // Shrink-wrap the content
+  display: block; // Fill the width of the parent
   text-align: left; // Reset text-align for the content
   width: 100%;
-  max-width: 380px; // Set max-width here to constrain everything
 }
 
 // Main container
 .mixer-container {
-    display: flex;
-    gap: 10px; // Reduced gap
-    padding: 10px; // Reduced padding
+    display: grid;
+    grid-template-columns: 1fr; // Single column by default
+    gap: 10px;
+    padding: 10px;
     background-color: #3a3f47;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    width: 100%;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .mixer-container {
+        grid-template-columns: 1fr 1.5fr 1fr; // Three columns on larger screens
+    }
 }
 
 // Disable text selection on interactive elements
