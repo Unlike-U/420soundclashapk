@@ -5,7 +5,7 @@ name: Build Android APK
 on:
   push:
     branches:
-      - build-fix  # Or your default branch
+      - main
 
 jobs:
   build:
