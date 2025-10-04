@@ -3,7 +3,7 @@
   margin: 0 auto 15px auto;
   padding: 10px;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 4px;
+  font-size: clamp(4px, 0.6vw, 6px);
   font-weight: bold; // Make font bold
   text-align: center;
   color: var(--accent-color, #61dafb);
@@ -11,6 +11,6 @@
   user-select: none;
   -webkit-user-select: none;
   width: 88%;
-  letter-spacing: -1px;
+  letter-spacing: -0.08em;
   line-height: 1;
 }
