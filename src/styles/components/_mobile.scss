@@ -1,20 +1,36 @@
 @media (max-width: 768px) {
+  body {
+    padding: 0; // Remove padding to allow container to be full-width
+  }
+
   #header-art {
-    font-size: 6px;
+    font-size: 5px; // Reduced font size for mobile header
+    margin-bottom: 5px; // Reduce space below header
   }
 
   .mixer-container {
     flex-direction: column;
     width: 100%;
-    gap: 1em;
+    max-width: 100vw; // Ensure it doesn't exceed viewport width
+    gap: 0;
     padding: 0;
     border-radius: 0;
+    box-shadow: none; // Remove shadow for a flatter mobile look
   }
 
   .channel-strip {
     width: 100%;
     border-radius: 0;
     margin: 0;
+    padding: 10px 15px; // Adjust padding for mobile
     box-sizing: border-box;
+    border: none; // Remove border for a cleaner look
+    border-bottom: 1px solid #282c34; // Add a separator
+  }
+
+  .time-controls {
+    .time-current, .time-remaining {
+      font-size: 12px; // Reduce font size for time display
+    }
   }
 }
