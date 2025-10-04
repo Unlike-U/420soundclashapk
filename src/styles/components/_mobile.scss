@@ -10,14 +10,15 @@
   }
 
   #header-art {
-    font-size: 5px; // Reduced font size for mobile header
+    font-size: 3px; // Precisely calculated font size to fit 115 characters in a 380px container with 15px padding
     margin-bottom: 5px; // Reduce space below header
   }
 
   .mixer-container {
     flex-direction: column;
-    width: 100%; // Use 100% width to fill the screen
-    max-width: 100%; // Ensure it doesn't exceed viewport
+    width: 100%;
+    max-width: 380px; // Set a max-width for a predictable, non-overflowing layout
+    margin: 0 auto; // Center the container on the screen
     gap: 0;
     padding: 0;
     border-radius: 0;
