@@ -48,6 +48,8 @@ h1, h2 {
 #interface-wrapper {
   display: inline-block; // Shrink-wrap the content
   text-align: left; // Reset text-align for the content
+  width: 100%;
+  max-width: 380px; // Set max-width here to constrain everything
 }
 
 // Main container

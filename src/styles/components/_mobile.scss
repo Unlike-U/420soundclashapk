@@ -22,22 +22,25 @@
 
   body {
     padding: 0; // Remove padding to allow container to be full-width
+    overflow-x: hidden; // Safety net to prevent any horizontal scrolling
   }
 
   #header-art {
-    font-size: 4px; // Precisely calculated font size to fit 115 characters in a 380px container with 15px padding
-    margin-bottom: 5px; // Reduce space below header
+    font-size: 4px;
+    margin-bottom: 5px;
+    overflow-x: hidden; // Crucial fix: prevent the preformatted text from expanding its container
+    padding: 10px 0; // Adjust padding to keep it centered
   }
 
   .mixer-container {
     flex-direction: column;
     width: 100%;
-    max-width: 380px; // Set a max-width for a predictable, non-overflowing layout
-    margin: 0 auto; // Center the container on the screen
+    /* max-width is now on #interface-wrapper */
+    margin: 0 auto;
     gap: 0;
     padding: 0;
     border-radius: 0;
-    box-shadow: none; // Remove shadow for a flatter mobile look
+    box-shadow: none;
   }
 
   .channel-strip {
