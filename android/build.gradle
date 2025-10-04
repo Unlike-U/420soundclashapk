@@ -24,6 +24,13 @@ allprojects {
     }
 }
 
+subprojects {
+    compileJava {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+}
+
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
