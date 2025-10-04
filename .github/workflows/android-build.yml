@@ -5,7 +5,7 @@ name: Build Android APK
 on:
   push:
     branches:
-      - main  # Or your default branch
+      - build-fix  # Or your default branch
 
 jobs:
   build:
@@ -14,8 +14,6 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-        with:
-          cache-key: ${{ github.run_id }}
 
       - name: Set up JDK 17
         uses: actions/setup-java@v4
@@ -28,12 +26,6 @@ jobs:
         with:
           node-version: '20' # Or your project's node version
 
-      - name: Verify Node.js version
-        run: node -v
-
-      - name: Clear npm cache
-        run: npm cache clean --force
-
       - name: Install web dependencies and build
         run: npm install
 
@@ -45,15 +37,6 @@ jobs:
 
       - name: Sync Capacitor assets
         run: npx cap sync android
-
-      - name: Check Keystore Secret
-        run: |
-          if [ -z "${{ secrets.KEYSTORE_BASE64 }}" ]; then
-            echo "Error: KEYSTORE_BASE64 secret is not set or is empty."
-            exit 1
-          else
-            echo "KEYSTORE_BASE64 secret is set."
-          fi
 
       - name: Decode Keystore
         run: printf "%s" "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > android/app/420mix.keystore
@@ -68,9 +51,6 @@ jobs:
           echo "keyAlias=$KEY_ALIAS" >> android/keystore.properties
           echo "keyPassword=$KEY_PASSWORD" >> android/keystore.properties
           echo "storeFile=../app/420mix.keystore" >> android/keystore.properties
-
-      - name: Display gradle-wrapper.properties
-        run: cat android/gradle/wrapper/gradle-wrapper.properties
 
       - name: Build Release APK
         uses: gradle/gradle-build-action@v3
