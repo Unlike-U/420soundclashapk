@@ -5,6 +5,21 @@
 }
 
 @media (max-width: 768px) {
+  /* --- START DEBUGGING STYLES --- */
+  .mixer-container {
+    outline: 2px solid red;
+  }
+  .channel-strip {
+    outline: 2px dashed blue;
+  }
+  .knob-row, .play-controls, .time-controls, .volume-controls, .recorder-controls, .effects-rack, .sampler-pads {
+    outline: 1px dashed lime;
+  }
+  .selected-path, .tracklist {
+    outline: 1px dashed orange;
+  }
+  /* --- END DEBUGGING STYLES --- */
+
   body {
     padding: 0; // Remove padding to allow container to be full-width
   }
