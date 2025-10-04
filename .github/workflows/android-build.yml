@@ -43,11 +43,17 @@ jobs:
       - name: Sync Capacitor assets
         run: npx cap sync android
 
-      - name: Decode Keystore
-        env:
-          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+      - name: Check Keystore Secret
         run: |
-          echo $KEYSTORE_BASE64 | base64 --decode > android/app/420mix.keystore
+          if [ -z "${{ secrets.KEYSTORE_BASE64 }}" ]; then
+            echo "Error: KEYSTORE_BASE64 secret is not set or is empty."
+            exit 1
+          else
+            echo "KEYSTORE_BASE64 secret is set."
+          fi
+
+      - name: Decode Keystore
+        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > android/app/420mix.keystore
 
       - name: Create Keystore Properties
         env:
