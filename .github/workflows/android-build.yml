@@ -53,7 +53,7 @@ jobs:
           fi
 
       - name: Decode Keystore
-        run: echo "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > android/app/420mix.keystore
+        run: printf "%s" "${{ secrets.KEYSTORE_BASE64 }}" | base64 --decode > android/app/420mix.keystore
 
       - name: Create Keystore Properties
         env:
