@@ -61,6 +61,10 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v3
 
+      - name: Clean Build Cache
+        run: ./gradlew clean
+        working-directory: ./android
+
       - name: Build Release APK
         run: ./gradlew assembleRelease
         working-directory: ./android
