@@ -68,6 +68,9 @@ jobs:
           echo "keyPassword=$KEY_PASSWORD" >> android/keystore.properties
           echo "storeFile=../app/420mix.keystore" >> android/keystore.properties
 
+      - name: Display gradle-wrapper.properties
+        run: cat android/gradle/wrapper/gradle-wrapper.properties
+
       - name: Build Release APK
         uses: gradle/gradle-build-action@v3
         with:
