@@ -54,7 +54,11 @@ h1, h2 {
 // Main container
 .mixer-container {
     display: grid;
-    grid-template-columns: 1fr; // Single column by default
+    grid-template-columns: 1fr; // Mobile-first: single column
+    grid-template-areas:
+        "channel-a"
+        "master"
+        "channel-b";
     gap: 10px;
     padding: 10px;
     background-color: #3a3f47;
@@ -64,9 +68,16 @@ h1, h2 {
     box-sizing: border-box;
 }
 
+// Assign grid areas to the components
+#channel-a { grid-area: channel-a; }
+#master-controls { grid-area: master; }
+#channel-b { grid-area: channel-b; }
+
+
 @media (min-width: 768px) {
     .mixer-container {
         grid-template-columns: 1fr 1.5fr 1fr; // Three columns on larger screens
+        grid-template-areas: "channel-a master channel-b";
     }
 }
 

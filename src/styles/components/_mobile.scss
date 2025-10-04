@@ -4,39 +4,23 @@
   box-sizing: border-box; // Universal box-sizing for predictable layouts
 }
 
-@media (max-width: 768px) {
-  /* --- START DEBUGGING STYLES --- */
-  .mixer-container {
-    outline: 2px solid red;
-  }
-  .channel-strip {
-    outline: 2px dashed blue;
-  }
-  .knob-row, .play-controls, .time-controls, .volume-controls, .recorder-controls, .effects-rack, .sampler-pads {
-    outline: 1px dashed lime;
-  }
-  .selected-path, .tracklist {
-    outline: 1px dashed orange;
-  }
-  /* --- END DEBUGGING STYLES --- */
-
+@media (max-width: 767px) { // Target screens smaller than the desktop grid breakpoint
   body {
     padding: 0; // Remove padding to allow container to be full-width
     overflow-x: hidden; // Safety net to prevent any horizontal scrolling
   }
 
+  #app {
+    padding: 0; // Remove padding on mobile
+  }
+
   #header-art {
     font-size: 4px;
     margin-bottom: 5px;
-    overflow-x: hidden; // Crucial fix: prevent the preformatted text from expanding its container
     padding: 10px 0; // Adjust padding to keep it centered
   }
 
   .mixer-container {
-    flex-direction: column;
-    width: 100%;
-    /* max-width is now on #interface-wrapper */
-    margin: 0 auto;
     gap: 0;
     padding: 0;
     border-radius: 0;
@@ -44,11 +28,10 @@
   }
 
   .channel-strip {
-    width: 100%;
     border-radius: 0;
     margin: 0;
-    padding: 10px 15px; // Adjust padding for mobile
-    border: none; // Remove border for a cleaner look
+    padding: 15px; // Consistent padding
+    border: none;
     border-bottom: 1px solid #282c34; // Add a separator
   }
 
