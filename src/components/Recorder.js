@@ -108,6 +108,9 @@ export class Recorder {
       const base64data = reader.result;
 
       try {
+        const permissions = await Filesystem.requestPermissions();
+        console.log('Permissions:', permissions);
+
         await Filesystem.writeFile({
           path: filename,
           data: base64data,
