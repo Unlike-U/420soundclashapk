@@ -24,9 +24,7 @@ export function setupEventListeners(audioEngine, recorder, state, formatTime, do
   });
 
   ui.downloadBtn.addEventListener('click', () => {
-    donationModal.show(() => {
-      recorder.download(`MyMixtape_${new Date().toISOString()}.mp3`);
-    });
+    recorder.download(`MyMixtape_${new Date().toISOString()}.mp3`);
   });
 
   ui.masterVolume.addEventListener('input', (e) => {
