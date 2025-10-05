@@ -112,6 +112,7 @@ export class Recorder {
           path: filename,
           data: base64data,
           directory: Directory.Downloads,
+          recursive: true,
         });
         console.log('File saved successfully');
         alert('File saved successfully!');
