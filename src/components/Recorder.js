@@ -90,7 +90,6 @@ export class Recorder {
    * Triggers a download of the recorded MP3 file.n   * @param {string} filename - The desired name for the file.
    */
   async download(filename = 'mixtape.mp3') {
-    alert('Download function called');
     if (this.mp3Data.length === 0) {
       console.warn('No recording data to download.');
       alert('No recording data to download.');
@@ -98,7 +97,6 @@ export class Recorder {
     }
 
     console.log('Preparing MP3 for download...');
-    alert('Preparing MP3 for download...');
     const blob = new Blob(this.mp3Data, { type: 'audio/mp3' });
 
     // Convert Blob to Base64
@@ -114,7 +112,7 @@ export class Recorder {
         await Filesystem.writeFile({
           path: filename,
           data: base64data,
-          directory: Directory.Downloads,
+          directory: Directory.Documents,
           recursive: true,
         });
         console.log('File saved successfully');
