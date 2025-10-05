@@ -65,9 +65,7 @@ export class AudioEngine {
     
     this.masterGain.connect(this.audioContext.destination);
     this.masterGain.connect(this.recordingNode);
-    this.masterGain.connect(this.masterCueGain);
-    this.masterCueGain.connect(this.headphoneGain);
-    this.headphoneGain.connect(this.audioContext.destination);
+
 
     this.analyser = this.audioContext.createAnalyser();
     this.masterGain.connect(this.analyser);
