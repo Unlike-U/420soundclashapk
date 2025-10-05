@@ -90,15 +90,12 @@ export class Recorder {
    * Triggers a download of the recorded MP3 file.n   * @param {string} filename - The desired name for the file.
    */
   async download(filename = 'mixtape.mp3') {
-    alert('Download function called');
     if (this.mp3Data.length === 0) {
       console.warn('No recording data to download.');
-      alert('No recording data to download.');
       return;
     }
 
     console.log('Preparing MP3 for download...');
-    alert('Preparing MP3 for download...');
     const blob = new Blob(this.mp3Data, { type: 'audio/mp3' });
 
     // Convert Blob to Base64
@@ -114,10 +111,8 @@ export class Recorder {
           directory: Directory.Downloads,
         });
         console.log('File saved successfully');
-        alert('File saved successfully!');
       } catch (e) {
         console.error('Unable to save file', e);
-        alert(`Unable to save file: ${e.message}`);
       }
     };
   }

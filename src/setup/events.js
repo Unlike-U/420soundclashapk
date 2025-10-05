@@ -24,7 +24,8 @@ export function setupEventListeners(audioEngine, recorder, state, formatTime, do
   });
 
   ui.downloadBtn.addEventListener('click', () => {
-    recorder.download(`MyMixtape_${new Date().toISOString()}.mp3`);
+    const timestamp = new Date().toISOString().replace(/:/g, '-');
+    recorder.download(`MyMixtape_${timestamp}.mp3`);
   });
 
   ui.masterVolume.addEventListener('input', (e) => {
