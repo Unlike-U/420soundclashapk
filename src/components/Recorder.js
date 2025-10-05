@@ -1,5 +1,5 @@
 import * as lamejs from '@breezystack/lamejs';
-import { saveAs } from 'file-saver';
+import { Filesystem, Directory } from '@capacitor/filesystem';
 
 /**
  * Handles recording the audio output and encoding it to MP3.
@@ -87,10 +87,9 @@ export class Recorder {
   }
 
   /**
-   * Triggers a download of the recorded MP3 file.
-   * @param {string} filename - The desired name for the file.
+   * Triggers a download of the recorded MP3 file.n   * @param {string} filename - The desired name for the file.
    */
-  download(filename = 'mixtape.mp3') {
+  async download(filename = 'mixtape.mp3') {
     if (this.mp3Data.length === 0) {
       console.warn('No recording data to download.');
       return;
@@ -98,6 +97,23 @@ export class Recorder {
 
     console.log('Preparing MP3 for download...');
     const blob = new Blob(this.mp3Data, { type: 'audio/mp3' });
-    saveAs(blob, filename);
+
+    // Convert Blob to Base64
+    const reader = new FileReader();
+    reader.readAsDataURL(blob);
+    reader.onloadend = async () => {
+      const base64data = reader.result;
+
+      try {
+        await Filesystem.writeFile({
+          path: filename,
+          data: base64data,
+          directory: Directory.Downloads,
+        });
+        console.log('File saved successfully');
+      } catch (e) {
+        console.error('Unable to save file', e);
+      }
+    };
   }
 }

@@ -20,6 +20,7 @@
   "dependencies": {
     "@breezystack/lamejs": "^1.2.7",
     "@capacitor/android": "^7.4.3",
+    "@capacitor/filesystem": "^7.1.4",
     "file-saver": "^2.0.5",
     "gridjs": "^6.2.0",
     "web-audio-beat-detector": "^8.2.31"
