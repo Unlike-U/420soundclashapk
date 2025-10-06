@@ -30,6 +30,7 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     background-color: #282c34;
     margin: 0;
+    padding: 1em;
     box-sizing: border-box;
     min-height: 100vh;
     display: grid;
@@ -42,44 +43,25 @@ h1, h2 {
 
 #app {
   text-align: center; // Center the wrapper
-  padding: 1em;
 }
 
 #interface-wrapper {
-  display: block; // Fill the width of the parent
+  display: inline-block; // Shrink-wrap the content
   text-align: left; // Reset text-align for the content
-  width: 100%;
 }
 
 // Main container
 .mixer-container {
-    display: grid;
-    grid-template-columns: 1fr; // Mobile-first: single column
-    grid-template-areas:
-        "channel-a"
-        "master"
-        "channel-b";
-    gap: 10px;
-    padding: 10px;
+    display: flex;
+    gap: 10px; // Reduced gap
+    padding: 10px; // Reduced padding
     background-color: #3a3f47;
     border-radius: 10px;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    width: 88%;
-    margin: auto;
-    box-sizing: border-box;
 }
 
-// Assign grid areas to the components
-#channel-a { grid-area: channel-a; }
-#master-controls { grid-area: master; }
-#channel-b { grid-area: channel-b; }
-
-
-@media (min-width: 768px) {
-    .mixer-container {
-        grid-template-columns: 1fr 1.5fr 1fr; // Three columns on larger screens
-        grid-template-areas: "channel-a master channel-b";
-    }
+label {
+    font-size: 9px;
 }
 
 // Disable text selection on interactive elements
@@ -108,16 +90,16 @@ input[type="range"] {
   &::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 12px;
-    height: 24px;
+    width: 18px;
+    height: 30px;
     background: var(--accent-color, #61dafb);
     cursor: pointer;
     border-radius: 2px;
   }
 
   &::-moz-range-thumb {
-    width: 12px;
-    height: 24px;
+    width: 18px;
+    height: 30px;
     background: var(--accent-color, #61dafb);
     cursor: pointer;
     border-radius: 2px;

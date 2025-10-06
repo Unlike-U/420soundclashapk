@@ -1,50 +1,32 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box; // Universal box-sizing for predictable layouts
-}
-
-@media (max-width: 767px) { // Target screens smaller than the desktop grid breakpoint
-  body {
-    padding: 0; // Remove padding to allow container to be full-width
-    overflow-x: hidden; // Safety net to prevent any horizontal scrolling
-  }
-
-  #app {
-    padding: 0; // Remove padding on mobile
-  }
-
+@media (max-width: 768px) {
   #header-art {
-    font-size: 4px;
-    margin-bottom: 5px;
-    padding: 10px 0; // Adjust padding to keep it centered
+    font-size: 2px;
   }
 
-  .mixer-container {
-    gap: 0;
+  .mixer-container.mobile-layout {
+    flex-direction: column;
+    width: 100%;
+    gap: 1em;
     padding: 0;
     border-radius: 0;
-    box-shadow: none;
   }
 
   .channel-strip {
+    width: 100%;
     border-radius: 0;
     margin: 0;
-    padding: 15px; // Consistent padding
-    border: none;
-    border-bottom: 1px solid #282c34; // Add a separator
+    box-sizing: border-box;
   }
+}
 
-  // Override fixed-width canvas to make it responsive
-  canvas#visualizer {
-    width: 100% !important;
-    height: auto !important;
+@media (orientation: landscape) and (max-height: 500px) {
+  body {
+    /* Ensure the content starts from the top */
+    place-items: start center;
   }
-
-  .time-controls {
-    .time-current, .time-remaining {
-      font-size: 12px; // Reduce font size for time display
-      min-width: 0; // Remove min-width to prevent overflow
-    }
+  #interface-wrapper {
+    /* Scale the entire interface down */
+    transform: scale(0.85);
+    transform-origin: top center;
   }
 }
